@@ -1,0 +1,12 @@
+//
+//  RELEASE.xcconfig
+//  ProductListing
+//
+//  Created by Gökhan KOCA on 27.03.2021.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = https:\/\/s3-eu-west-1.amazonaws.com\/developer-application-test
+LOG_LEVEL = 4

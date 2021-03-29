@@ -1,0 +1,40 @@
+{
+	"products" : [
+		{
+			"product_id" : "1",
+			"name" : "Apples",
+			"price" : 120,
+			"image" : "https://s3-eu-west-1.amazonaws.com/developer-application-test/images/1.jpg"
+		},
+		{
+			"product_id" : "2",
+			"name" : "Oranges",
+			"price" : 167,
+			"image" : "https://s3-eu-west-1.amazonaws.com/developer-application-test/images/2.jpg"
+		},
+		{
+			"product_id" : "6_id_is_a_string",
+			"name" : "Pork",
+			"price" : 343,
+			"image" : "https://s3-eu-west-1.amazonaws.com/developer-application-test/images/6.jpg"
+		},
+		{
+			"product_id" : "7",
+			"name" : "Chicken",
+			"price" : 272,
+			"image" : "https://s3-eu-west-1.amazonaws.com/developer-application-test/images/chicken.jpg"
+		},
+		{
+			"product_id" : "8",
+			"name" : "Salmon",
+			"price" : 267,
+			"image" : "https://s3-eu-west-1.amazonaws.com/developer-application-test/images/8.jpg"
+		},
+		{
+			"product_id" : "12",
+			"name" : "Peppers",
+			"price" : 9,
+			"image" : "https://s3-eu-west-1.amazonaws.com/developer-application-test/images/12.jpg"
+		}
+	]
+}

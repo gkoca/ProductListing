@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "placeholderproduct-500x500.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
