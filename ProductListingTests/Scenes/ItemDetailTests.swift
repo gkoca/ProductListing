@@ -19,14 +19,16 @@ class ItemDetailTests: XCTestCase {
 		super.setUp()
 		TestAppDelegate.shared?.clearAllCoreData()
 		let semaphore = DispatchSemaphore(value: 0)
-		ItemDetailWireframe.loadScene(id: "1") { (wireFrame) in
-			self.sutWireFrame = wireFrame
-			self.sutView = wireFrame.moduleView
-			self.sutPresenter = wireFrame.modulePresenter
-			self.sutInteractor = wireFrame.moduleInteractor
-			let navigationController = UINavigationController(rootViewController: wireFrame.moduleView)
-			UIApplication.shared.windows.first?.rootViewController = navigationController
-			semaphore.signal()
+		ItemListWireframe.loadScene { (itemListWF) in
+			ItemDetailWireframe.loadScene(id: "1") { (wireFrame) in
+				self.sutWireFrame = wireFrame
+				self.sutView = wireFrame.moduleView
+				self.sutPresenter = wireFrame.modulePresenter
+				self.sutInteractor = wireFrame.moduleInteractor
+				let navigationController = UINavigationController(rootViewController: wireFrame.moduleView)
+				UIApplication.shared.windows.first?.rootViewController = navigationController
+				semaphore.signal()
+			}
 		}
 		semaphore.wait()
 	}
@@ -48,7 +50,7 @@ class ItemDetailTests: XCTestCase {
 		XCTAssertEqual(sutPresenter?.item.name, "Apples")
 		XCTAssertEqual(sutPresenter?.item.image, "https://s3-eu-west-1.amazonaws.com/developer-application-test/images/1.jpg")
 		XCTAssertEqual(sutPresenter?.item.price, 120)
-		XCTAssertEqual(sutPresenter?.item.desc, "An apple a day keeps the doctor away.")
+		XCTAssertEqual(sutPresenter?.item.detail?.desc, "An apple a day keeps the doctor away.")
 	}
 	
 	func testView() {

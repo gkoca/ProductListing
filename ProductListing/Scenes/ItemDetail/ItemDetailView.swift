@@ -36,18 +36,18 @@ extension ItemDetailView: ItemDetailNavigationInterface { }
 
 // MARK: - Presenter to View Interface
 extension ItemDetailView: ItemDetailPresenterToViewInterface {
-	func didLoad(item: ProductDetail) {
+	func didLoad(item: Product) {
 		self.title = item.name
 		nameLabel.text = item.name
 		imageView.load(from: item.image ?? "", contentMode: .scaleAspectFill, placeholder: "placeholderImage")
 		priceLabel.text = String(format: "%.2f", item.price)
-		descriptionLabel.text = item.desc
+		descriptionLabel.text = item.detail?.desc
 	}
 }
 
 // MARK: - Communication Interfaces
 // VIPER Interface for communication from View -> Presenter
 protocol ItemDetailViewToPresenterInterface: class {
-	var item: ProductDetail! { get }
+	var item: Product! { get }
 	func viewDidDisappear()
 }

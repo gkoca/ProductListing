@@ -22,7 +22,7 @@ class ItemDetailPresenter {
 		}
 	}
 	var itemId: String
-	var item: ProductDetail!
+	var item: Product!
 	
 	// MARK: - Operational
 	init(with id: String) {
@@ -36,7 +36,7 @@ class ItemDetailPresenter {
 
 // MARK: - Interactor to Presenter Interface
 extension ItemDetailPresenter: ItemDetailInteractorToPresenterInterface {
-	func didFetched(item: ProductDetail) {
+	func didFetched(item: Product) {
 		self.item = item
 		view.didLoad(item: item)
 		wireframe.didLoadScene()
@@ -83,5 +83,5 @@ protocol ItemDetailPresenterToWireframeInterface: class {
 
 // VIPER Interface for communication from Presenter -> View
 protocol ItemDetailPresenterToViewInterface: class {
-	func didLoad(item: ProductDetail)
+	func didLoad(item: Product)
 }

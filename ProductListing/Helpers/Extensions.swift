@@ -69,15 +69,16 @@ extension UIImageView {
 
 extension Thread {
   var isRunningXCTest: Bool {
+	#if DEBUG
 	for key in self.threadDictionary.allKeys {
 	  guard let keyAsString = key as? String else {
 		continue
 	  }
-	
 	  if keyAsString.split(separator: ".").contains("xctest") {
 		return true
 	  }
 	}
+	#endif
 	return false
   }
 }

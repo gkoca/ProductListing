@@ -16,6 +16,7 @@ public class Product: NSManagedObject, Decodable, Identifiable {
 	@NSManaged public var name: String?
 	@NSManaged public var price: Double
 	@NSManaged public var image: String?
+	@NSManaged public var detail: ProductDetail?
 	
 	enum CodingKeys: String, CodingKey {
 		case id = "product_id"
@@ -38,5 +39,11 @@ public class Product: NSManagedObject, Decodable, Identifiable {
 	
 	@nonobjc public class func fetchRequest() -> NSFetchRequest<Product> {
 		return NSFetchRequest<Product>(entityName: "Product")
+	}
+	
+	@nonobjc public class func fetchRequest(with id: String) -> NSFetchRequest<Product> {
+		let fetchRequest = NSFetchRequest<Product>(entityName: "Product")
+		fetchRequest.predicate =  NSPredicate(format: "id = %@", id)
+		return fetchRequest
 	}
 }
